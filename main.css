@@ -45,7 +45,11 @@ button:disabled{
   color: white;
 }
 .dark textarea, .dark label, .dark .todo-item {
-  background-color: #eee !important;
+  background-color: rgba(50,50,50,.5) !important;
+  color: white !important;
+}
+.dark textarea:placeholder {
+  color: var(--dark);
 }
 body {
  
@@ -139,6 +143,10 @@ h4 {
 	box-shadow: var(--shadow);
 	border-radius: 0.5rem;
 	cursor: pointer;
+}
+
+.options label h4{
+  margin-top: 1.5em;
 }
 
 input[type="radio"],

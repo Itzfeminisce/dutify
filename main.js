@@ -7,7 +7,6 @@ window.addEventListener("load", () => {
   }
   getById('sort').value = getSortOrder()
   getById("username").textContent = getUser()
-//getById("experience").value = switchExperience()
 
 
   const newTodoForm = getById("new-todo-form")
@@ -140,7 +139,7 @@ window.addEventListener("load", () => {
     setItem("todos", TODOS)
     displayTodos(TODOS)
     toast("Deleted Todo!")
-    e.target.reset()
+    //  e.target.reset()
   }
 
   function handleCreate(e) {
@@ -160,11 +159,13 @@ window.addEventListener("load", () => {
     }
     if (useTodo) {
       TODOS = TODOS.map(td => td.id == useTodo.id ? todo : td)
-      displayTodos(TODOS)
+      // displayTodos(TODOS)
     } else {
       TODOS.push(todo)
-      displayTodos(TODOS)
     }
+
+    displayTodos(TODOS)
+
     setItem("todos", TODOS)
 
     toast(`${useTodo?"Updated ":"Created new "} Todo!`)
@@ -261,8 +262,8 @@ window.addEventListener("load", () => {
   function getUser() {
     if (!(name = getItem('username'))) {
       let name = prompt("Hey! I would like to know your name 😇")
-      alert(`${name.trim()} Welcome onboard, It's time to put your duties in order!`)
-      setItem('username', name.trim())
+      alert(`${name?.trim()} Welcome onboard, It's time to put your duties in order!`)
+      setItem('username', name?.trim())
       return name;
     }
 
@@ -300,7 +301,7 @@ window.addEventListener("load", () => {
   function switchExperience() {
     let el = select("body")
     el.className = ''
-    if(!this && !this.value){
+    if (!this && !this.value) {
       el.classList.add(getCurrentExperience())
       return;
     }
@@ -311,9 +312,9 @@ window.addEventListener("load", () => {
       case 'light':
         el.classList.add('light')
         break;
-        case 'system':
-             el.classList.add(getScheme())
-             break;
+      case 'system':
+        el.classList.add(getScheme())
+        break;
     }
     setItem("experience", el.className)
   }
