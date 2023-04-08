@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Todo List 2022 with LocalStorage</title>
+	<!-- CSS Import -->
+	<link rel="stylesheet" href="main.css" />
+	<!-- End of CSS Import -->
+	<!-- Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;0,900;1,400&family=Montserrat:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+	<!-- End of Fonts -->
+</head>
+<body class="">
+	<!-- App Wrapper -->
+	<main class="app">
+		<!-- Greeting -->
+		<section class="greeting">
+			<h2 class="title">
+				<span style="color:var(--primary);">Welcome </span> &nbsp; <span id="username">Guest</span>,
+			</h2>
+			
+			<select name="experience" id="experience">
+			  <option value="dark">Dark 🌑</option>
+			  <option value="light">Light ☀️</option>
+			  <option value="system">Auto 💻</option>
+			</select>
+		</section>
+		<!-- End of Greeting -->
+		
+		<!-- New Todo -->
+		<section class="create-todo">
+			<form id="new-todo-form">
+			<div id="new-todo-form-header">
+			  <h4>What's on your List?</h4>
+			  <button type="button" disabled id="reset-todo-form">New Todo</button>
+			</div>
+				<textarea
+				rows="5"
+					type="text" 
+					placeholder="I want to....."
+					name="content"
+					id="content"></textarea>
+				
+				<h4>Pick a category</h4>
+				<div class="options">
+					<label>
+						<input type="radio" name="category" id="category1" value="business" /> 
+						<span class="bubble business"></span>
+						<div>Business</div>
+					</label>
+					<label>
+						<input type="radio" name="category" id="category2" value="personal" />
+						<span class="bubble personal"></span>
+						<div>Personal</div>
+					</label>
+				</div>
+
+				<button data-action="create" id="submit" type="submit">Add Todo</button>
+			</form>
+
+		<!--	<div class="todo-footer">
+				<div class="left-items">5 Items left</div>
+				<ul class="footer-menus">
+				  <li class="all selected">All</li>
+				  <li class="active">Active</li>
+				  <li class="completed">Completed</li>
+				</ul>
+				<button class="clear-completed">Clear Completed</button>
+			  </div> -->
+			
+			  
+
+  
+		</section>
+		<!-- End of New Todo -->
+
+		<!-- Todo List -->
+		<section class="todo-list">
+		  <hr>
+		<div class="todo-list-header">
+		  <h4>Your Lists</h4>
+		  	<div class="sort-container">
+		  	  <span>sort: </span>
+		  	  <select name="sort" id="sort">
+		  	    <option value="desc">Oldest First</option>
+		  	    <option value="asc">Latest First</option>
+		  	    <option value="completed">Completed</option>
+		  	    <option value="active">Active</option>
+		  	  </select>
+		  	</div>
+		</div>
+			<div class="list" id="todo-list"></div>
+		</section>
+		<!-- End of Todo List -->
+
+	</main>
+	<!-- End of App Wrapper -->
+
+	<!-- JS Import -->
+	<script src="main.js"></script>
+	<!-- End of JS Import -->
+</body>
+</html>

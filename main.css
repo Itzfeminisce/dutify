@@ -1,0 +1,349 @@
+/* Variables */
+:root {
+	--primary: #EA40A4;
+	--business: #3a82ee;
+	--personal: var(--primary);
+	--light: #EEE;
+	--grey: #888;
+	--dark: #313154;
+	--danger: #ff5b57;
+
+	--shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+	--business-glow: 0px 0px 4px rgba(58, 130, 238, 0.75);
+	--personal-glow: 0px 0px 4px rgba(234, 64, 164, 0.75);
+}
+/* End of Variables */
+
+/* Resets */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'montserrat', sans-serif;
+}
+
+input:not([type="radio"]):not([type="checkbox"]), button {
+	appearance: none;
+	border: none;
+	outline: none;
+	background: none;
+	cursor: initial;
+}
+button:disabled{
+  opacity: .2;
+}
+/* End of Resets */
+.dark{
+    background: #14191c !important;
+
+  /*
+  background: var(--dark) !important;
+  */
+}
+.dark #username {
+  color: white;
+}
+.dark textarea, .dark label, .dark .todo-item {
+  background-color: #eee !important;
+}
+body {
+ 
+	background: var(--light);
+
+	color: var(--dark);
+}
+
+section {
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+}
+a{
+  text-decoration:none;
+  color: currentColor;
+}
+h3 {
+	color: var(--dark);
+	font-size: 1rem;
+	font-weight: 400;
+	margin-bottom: 0.5rem;
+}
+
+h4 {
+	color: var(--grey);
+	font-size: 0.875rem;
+	font-weight: 700;
+	margin-bottom: 0.5rem;
+}
+.greeting {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.greeting #experience{
+  border: none;
+  background: transparent;
+  font-weight: bold;
+  outline: none;
+  padding: .5em 1em;
+  background: var(--primary);
+  border-radius: 100px;
+  color: white;
+  appearance: none;
+}
+.greeting .title {
+	display: flex;
+}
+
+.greeting .title input {
+	margin-left: 0.5rem;
+	flex: 1 1 0%;
+	min-width: 0;
+}
+
+.greeting .title, 
+.greeting .title input {
+	color: var(--dark);
+	font-size: 1.5rem;
+	font-weight: 700;
+}
+
+.create-todo textarea {
+	display: block;
+	width: 100%;
+	font-size: 1.125rem;
+	padding: 1rem 1.5rem;
+	color: var(--dark);
+	background-color: #FFF;
+	border-radius: 0.5rem;
+	box-shadow: var(--shadow);
+	margin-bottom: 1.5rem;
+}
+
+.create-todo .options {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 1rem;
+	margin-bottom: 1.5rem;
+}
+
+.create-todo .options label {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: #FFF;
+	padding: 1.5rem;
+	box-shadow: var(--shadow);
+	border-radius: 0.5rem;
+	cursor: pointer;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+	display: none;
+}
+
+.bubble {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 20px;
+	height: 20px;
+	border-radius: 999px;
+	border: 2px solid var(--business);
+	box-shadow: var(--business-glow);
+}
+
+.bubble.personal {
+	border-color: var(--personal);
+	box-shadow: var(--personal-glow);
+}
+
+.bubble::after {
+	content: '';
+	display: block;
+	opacity: 0;
+	width: 0px;
+	height: 0px;
+	background-color: var(--business);
+	box-shadow: var(--business-glow);
+	border-radius: 999px;
+	transition: 0.2s ease-in-out;
+}
+
+.bubble.personal::after {
+	background-color: var(--personal);
+	box-shadow: var(--personal-glow);
+}
+
+input:checked ~ .bubble::after {
+	width: 10px;
+	height: 10px;
+	opacity: 1;
+}
+
+.create-todo .options label div {
+	color: var(--dark);
+	font-size: 1.125rem;
+	margin-top: 1rem;
+}
+
+.create-todo button[type="submit"] {
+	display: block;
+	width: 100%;
+	font-size: 1.125rem;
+	padding: 1rem 1.5rem;
+	color: #FFF;
+	font-weight: 700;
+	text-transform: uppercase;
+	background-color: var(--primary);
+	box-shadow: var(--personal-glow);
+	border-radius: 0.5rem;
+	cursor: pointer;
+	transition: 0.2s ease-out;
+}
+
+.create-todo input[type="submit"]:hover {
+	opacity: 0.75;
+}
+
+.todo-list .list {
+	margin: 1rem 0;
+	background-color: transparent; 
+}
+
+.todo-list-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+#new-todo-form-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#new-todo-form-header button{
+  background: transparent;
+  color: var(--personal);
+  outline: none;
+  font-weight: bold;
+}
+.todo-list .todo-item {
+	display: flex;
+	align-items: center;
+	background-color: #FFF;
+	padding: 1rem;
+	border-radius: 0.5rem;
+	box-shadow: var(--shadow);
+	margin-bottom: 1rem;
+}
+
+.todo-item label {
+	display: block;
+	margin-right: 1rem;
+	cursor: pointer;
+}
+
+.todo-item .todo-content {
+	flex: 1 1 0%;
+	/*
+	display: flex;
+		overflow-x: hidden ;
+		white-space: ellipsis;
+		text-overflow: ellipsis;
+		width: 100%;
+		max-height: 100%;
+		background: red;*/
+}
+
+.todo-item .todo-content input {
+	color: var(--dark);
+	font-size: 1.125rem;
+}
+
+.todo-item .actions {
+	display: flex;
+	align-items: center;
+}
+
+.todo-item .actions button {
+	display: block;
+	padding: 0.5rem;
+	border-radius: 0.25rem;
+	color: #FFF;
+	cursor: pointer;
+	transition: 0.2s ease-in-out;
+}
+
+.todo-item .actions button:hover {
+	opacity: 0.75;
+}
+
+.todo-item .actions .edit {
+	margin-right: 0.5rem;
+	background-color: var(--primary);
+}
+
+.todo-item .actions .delete {
+	background-color: var(--danger);
+}
+
+.todo-item.done .todo-content input {
+	text-decoration: line-through;
+	/* color: var(--grey); */
+	color: red;
+	background-color: rgba(233, 133, 133, 0.397);
+}
+.todo-item.done .todo-content input:checked {
+  accent-color: red !important;
+}
+.done{
+  border: 1px dotted red;
+  background-color: rgba(255,0,0,.05)!important;
+}
+.done .mark{
+  color:red;
+  margin: auto 10px;
+}
+.done::after{
+  content:"✓";
+  margin-left: 5px;
+  color: red;
+}
+.toast{
+  position: fixed;
+  top: 0;
+  right: 10%;
+  border-radius: 5px;
+display: flex;
+justify-content: center;
+align-items: center;
+align-content: center;
+  background-color: rgba(0,200,0,.5);
+  color: white;
+  text-align: center;
+  padding: 4px;
+  margin: 10px;
+  font-size: smaller;
+  box-shadow: 0 0 10 50 #000;
+}
+.sort-container{
+  background: var(--personal);
+  padding: .5em;
+  border-radius: .5em;
+  color: white;
+}
+.sort-container select{
+  outline: none;
+  border: none;
+  background: transparent;
+  color: white;
+}
+hr{
+  margin: 1em auto;
+  opacity: .5;
+}
